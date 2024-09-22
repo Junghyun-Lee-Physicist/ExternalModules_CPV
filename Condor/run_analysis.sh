@@ -26,8 +26,8 @@ echo "inputListName: ${inputListName}"
 echo "outputDir: ${outputDir}"
 echo "outputName: ${outputName}"
 
-# Create the output directory if it doesn't exist
-# in ssb_analysis.cpp, you need to set the dsipcap path for using SE_Storage
+# Create the output directory if it doesn't exist in ssb_analysis.cpp, 
+# You need to set the dsipcap path for using SE_Storage
 mkdir -p "${outputPath}/${outputDir}"
 
 # Run the analysis
