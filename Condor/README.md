@@ -1,44 +1,51 @@
-Job Submission Script for HTCondor
+# Job Submission Script for HTCondor
+
 This Python script automates the process of creating and submitting jobs to HTCondor for high-energy physics analyses. It generates Condor submit files based on the input lists provided and submits them to the Condor scheduler. The script also handles the creation of necessary directories and symbolic links for organizing output files.
 
-Description
-Creates Condor submit files for each sample directory found in the input list directories.
-Submits jobs to HTCondor using the generated submit files.
-Creates necessary directories for logs and submissions.
-Creates a symbolic link from the local output directory to the storage path, ensuring that outputs are stored correctly.
-Checks for existing paths to prevent overwriting existing data or symbolic links.
+## Description
 
-Requirements
-Python 3.x
-HTCondor installed and configured.
-Environment Variables:
-AnalyzerPath: Path to your analyzer directory.
-CPVrootEnv: Path to your ROOT environment setup script.
+- **Creates Condor submit files** for each sample directory found in the input list directories.
+- **Submits jobs** to HTCondor using the generated submit files.
+- **Creates necessary directories** for logs and submissions.
+- **Creates a symbolic link** from the local output directory to the storage path, ensuring that outputs are stored correctly.
+- **Checks for existing paths** to prevent overwriting existing data or symbolic links.
 
-Usage
-Set Environment Variables:
+## Requirements
 
-Make sure to export the necessary environment variables before running the script:
+- **Python 3.x**
+- **HTCondor** installed and configured.
+- **Environment Variables**:
+  - `AnalyzerPath`: Path to your analyzer directory.
+  - `CPVrootEnv`: Path to your ROOT environment setup script.
 
-export AnalyzerPath=/path/to/your/analyzer
-export CPVrootEnv=/path/to/your/root/envSetup.sh
+## Usage
 
-Configure the Script:
+1. **Set Environment Variables**:
 
-Modify the following variables in the script as needed:
+   Make sure to export the necessary environment variables before running the script:
 
-JobName: A unique name for this set of jobs.
-MCListDirName: Directory name containing MC input lists.
-DataListDirName: Directory name containing Data input lists.
-outputPath: Path to the storage directory where output files will be saved.
-cfgName: Path to your configuration file.
+   ```bash
+   export AnalyzerPath=/path/to/your/analyzer
+   export CPVrootEnv=/path/to/your/root/envSetup.sh
 
-Run the Script:
+2. **Configure the Script**:
 
+   Modify the following variables in the script as needed:
+
+   - JobName: A unique name for this set of jobs.
+   - MCListDirName: Directory name containing MC input lists.
+   - DataListDirName: Directory name containing Data input lists.
+   - outputPath: Path to the storage directory where output files will be saved.
+   - cfgName: Path to your configuration file.
+
+3. **Run the Script**:
+
+```bash
 python3 submit_condor_jobs.py
+
 Replace submit_condor_jobs.py with the actual filename of your script.
 
-Important Notes
+## Important Notes
 Job Name Uniqueness:
 
 The JobName should be unique to prevent conflicts with existing jobs.
